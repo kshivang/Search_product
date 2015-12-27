@@ -57,8 +57,6 @@ public class MySuggestionProvider extends SearchRecentSuggestionsProvider{
         MatrixCursor customcursor = new MatrixCursor(columns);
         new AsyncHttpTask().execute("http://api.adurcup.com/v2/productCat?query=" + selArgs[0].replace(" ","+"));
 
- //       Toast.makeText(getContext(),customcursor.getColumnCount()+feedsList.get(0).getTitle()+feedsList.size(),Toast.LENGTH_SHORT).show();
-
         for (int i=0;i<feedsList.size();i++)
         {
             FeedItem tmpfeedList=feedsList.get(i);
@@ -68,7 +66,7 @@ public class MySuggestionProvider extends SearchRecentSuggestionsProvider{
 
 
         Cursor[] cursor={recentCursor,customcursor};
-        feedsList.clear();
+        //feedsList.clear();
         return new MergeCursor(cursor);
     }
 
