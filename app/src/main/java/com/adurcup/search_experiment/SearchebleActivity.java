@@ -107,6 +107,9 @@ public class SearchebleActivity extends AppCompatActivity {
         }
         else if(Intent.ACTION_VIEW.equals(intent.getAction())){
             String data = intent.getDataString();
+            if(data==null){
+                data=url+intent.getStringExtra(SearchManager.QUERY);
+            }
             new AsyncHttpTask().execute(data);
         }
     }
